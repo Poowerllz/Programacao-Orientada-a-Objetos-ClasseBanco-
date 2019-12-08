@@ -1,0 +1,27 @@
+package ContaB;
+
+public class ContaMain {
+
+	public static void main(String[] args) {
+		ClassConta Joana = new ClassConta();
+		Joana.setNum(234);
+		Joana.setDono("Jubileu");
+		Joana.setTipo("cc");
+		Joana.abrirConta(); 
+		Joana.depositar(200);
+		Joana.sacar(200);
+		Joana.Stado();
+		
+		ClassConta P2 = new ClassConta();
+		P2.setNum(2222);
+		P2.setDono("Creusa");
+		P2.setTipo("cp");
+		P2.abrirConta();
+		P2.depositar(500);
+		P2.sacar(100);
+		P2.Stado();
+		}
+	
+	
+
+}
