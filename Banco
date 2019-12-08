@@ -1,0 +1,127 @@
+package ContaB;
+
+public class ClassConta {
+	public int nConta;
+	protected String tConta;
+	private String Dono;
+	private int sConta;
+	private Boolean Status;
+	
+
+	public ClassConta() {
+		sConta = 0;
+		Status = false;
+		} 
+
+	public void abrirConta() {
+		this.setTipo(tConta);
+		this.setStatus(true);
+		System.out.println("Sua Conta foi aberta!");
+		if (this.getTipo() == "cc") {
+			this.sConta = 50;
+		}
+		if (this.getTipo() == "cp") {
+			this.sConta = 150;
+		}
+	}
+
+	public void fecharConta() {
+		if (sConta == 0) {
+			setStatus(false);
+			System.out.println("Conta fechada com sucesso!");
+		} else {
+			System.out.println("ERROR! #593453582342079");
+			System.out.println("Impossível fechar conta com saldo ou débito # de 0.");
+			System.out.println("Saldo Atual: R$" + this.getSaldo());
+		}
+	}
+
+	public void depositar(int V) {
+		if (Status == true) {
+			this.setSaldo(getSaldo() + V);
+			System.out.println("Seu depósito foi feito com sucesso!");
+			} else {
+			System.out.println("ERRO! A sua conta atualmente está fechada.");
+			System.out.println("#003556544633456");
+		}
+
+	}
+
+	public void sacar(int Saque) {
+		if (Status == true) {
+			if (sConta >= Saque) {
+				sConta = sConta - Saque;
+			} else {
+				System.out.println("Impossível sacar valor maior do que o que está na conta.");
+				System.out.println("Saldo atual: R$" + this.getSaldo());
+			}
+		} else {
+			System.out.println("Impossível sacar de contas fechadas.");
+		}
+	}
+
+	public void pagarMensal() {
+		if (Status == true && sConta > 20.0f ) {
+			if (tConta == "cc") {
+				sConta = sConta - 12;
+			}
+			if (tConta == "cp") {
+				sConta = sConta - 20;
+			}
+		}
+	}
+
+	public int getSaldo() {
+		return sConta;
+	}
+
+	public void setSaldo(int S) {
+		this.sConta = S;
+	}
+
+	public String getDono() {
+		return Dono;
+	}
+
+	public void setDono(String D) {
+		this.Dono = D;
+	}
+
+	public String getTipo() {
+		if(tConta == "cc") {
+			tConta = "Conta corrente";
+		} if (tConta == "cp") {
+			tConta = "Conta Poupança";
+		}
+		return tConta;
+	}
+
+	public void setTipo(String z) {
+		this.tConta = z;
+	}
+
+	public int getNum() {
+		return nConta;
+	}
+
+	public void setNum(int N) {
+		this.nConta = N;
+	}
+
+	public Boolean getStatus() {
+		return Status;
+	}
+
+	public void setStatus(Boolean S) {
+		this.Status = S;
+	}
+
+	public void Stado() {
+		System.out.println("Conta: " + this.getNum());
+		System.out.println("Tipo: " +  this.getTipo());
+		System.out.println("Dono: " + this.getDono());
+		System.out.println("Saldo: " + this.getSaldo());
+		System.out.println("Status atual: " + this.getStatus());
+		System.out.println("------------------------------");
+	}
+}
